@@ -1,0 +1,36 @@
+This is the a set of hyperparameter which acheive 98% accuracy on MNIST dataset.
+
+hyperparameters: mnist lenet5 xavier 100 softmax 10 0.5 0.0005 0.5 0 0 0 0 0
+
+Log level set to INFO
+[INFO   ] inputDropoutRate: 0.0, hiddenDropoutRate: 0.0
+[INFO   ] reading image filename './datasets/train-images-idx3-ubyte' and label filename: './datasets/train-labels-idx1-ubyte
+[INFO   ] read 60000 MNIST images.
+[INFO   ] reading image filename './datasets/t10k-images-idx3-ubyte' and label filename: './datasets/t10k-labels-idx1-ubyte
+[INFO   ] read 10000 MNIST images.
+[INFO   ] Using an SOFTMAX loss function.
+[INFO   ] Starting minibatch gradient descent!
+[INFO   ] minibatch (100), mnist, softmax, lr: 5.0E-4, mu:0.5
+[INFO   ] calculating initial error and accuracy
+[INFO   ] bestError error accuracy testingError testingAccuracy
+ITERATION  440304.70775278116 440304.70775278116   11.23500 73648.91021625702  11.35000
+[INFO   ] Learning rate: 4.875E-4
+  440304.70775278116 569374.1916967842    9.03500 94999.6165795071   8.92000
+[INFO   ] Learning rate: 4.753125E-4
+  13431.918158836756 13431.918158836756   93.45167 2108.1005492255827  93.72000
+[INFO   ] Learning rate: 4.634296875E-4
+  6278.064291776536 6278.064291776536   96.93667 901.0377317473119  97.35000
+[INFO   ] Learning rate: 4.5184394531249994E-4
+  4985.478278511453 4985.478278511453   97.50500 844.3426463532854  97.45000
+[INFO   ] Learning rate: 4.405478466796874E-4
+  3307.629644943263 3307.629644943263   98.33500 566.1767629342285  98.21000
+[INFO   ] Learning rate: 4.295341505126952E-4
+  3253.1440256651176 3253.1440256651176   98.35500 596.0411462094748  98.19000
+[INFO   ] Learning rate: 4.1879579674987784E-4
+  2376.1996788663637 2376.1996788663637   98.77500 509.81531377786274  98.50000
+[INFO   ] Learning rate: 4.083259018311309E-4
+  2095.393466162379 2095.393466162379   98.93000 448.45968702283886  98.65000
+[INFO   ] Learning rate: 3.981177542853526E-4
+  2095.393466162379 2840.2486455742223   98.49833 542.1926561999364  98.19000
+[INFO   ] Learning rate: 3.881648104282188E-4
+  1582.9785398903962 1582.9785398903962   99.21000 433.60626071967374  98.62000
