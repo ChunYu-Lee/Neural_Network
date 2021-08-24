@@ -1,0 +1,120 @@
+This is the bonus output file of pytorch framework model with batchnorm.
+
+File: framework_add_batchnorm.py
+Corresponding photos in the folder - framework_batchnorm_picture.
+Numbers of trainable parameters: Number_of_parameters
+Result of the training: Accuracy_loss
+Training: Training_1, Training_2
+
+Number of parameters: 81804
+
+Result:
+
+epoch 10, learning rate 1e-1
+Epoch [0], val_loss: 1.3506, val_acc: 0.5070
+Epoch [1], val_loss: 1.1822, val_acc: 0.5886
+Epoch [2], val_loss: 1.0443, val_acc: 0.6395
+Epoch [3], val_loss: 0.9748, val_acc: 0.6614
+Epoch [4], val_loss: 0.9917, val_acc: 0.6596
+Epoch [5], val_loss: 0.9120, val_acc: 0.6825
+Epoch [6], val_loss: 0.9113, val_acc: 0.6871
+Epoch [7], val_loss: 0.8680, val_acc: 0.7045
+Epoch [8], val_loss: 0.9252, val_acc: 0.6862
+Epoch [9], val_loss: 0.8574, val_acc: 0.7097
+
+epoch 10, learning rate 1e-2
+Epoch [0], val_loss: 0.7934, val_acc: 0.7289
+Epoch [1], val_loss: 0.7971, val_acc: 0.7331
+Epoch [2], val_loss: 0.8000, val_acc: 0.7320
+Epoch [3], val_loss: 0.7935, val_acc: 0.7342
+Epoch [4], val_loss: 0.7917, val_acc: 0.7361
+Epoch [5], val_loss: 0.8081, val_acc: 0.7354
+Epoch [6], val_loss: 0.8048, val_acc: 0.7465
+Epoch [7], val_loss: 0.8084, val_acc: 0.7406
+Epoch [8], val_loss: 0.8100, val_acc: 0.7330
+Epoch [9], val_loss: 0.8103, val_acc: 0.7397
+
+epoch 10, learning rate 1e-3
+Epoch [0], val_loss: 0.8209, val_acc: 0.7353
+Epoch [1], val_loss: 0.8187, val_acc: 0.7352
+Epoch [2], val_loss: 0.8083, val_acc: 0.7394
+Epoch [3], val_loss: 0.8092, val_acc: 0.7377
+Epoch [4], val_loss: 0.8308, val_acc: 0.7402
+Epoch [5], val_loss: 0.8244, val_acc: 0.7365
+Epoch [6], val_loss: 0.8128, val_acc: 0.7353
+Epoch [7], val_loss: 0.8281, val_acc: 0.7384
+Epoch [8], val_loss: 0.8277, val_acc: 0.7414
+Epoch [9], val_loss: 0.8220, val_acc: 0.7391
+
+epoch 10, learning rate 1e-5
+Epoch [0], val_loss: 0.8285, val_acc: 0.7302
+Epoch [1], val_loss: 0.8236, val_acc: 0.7416
+Epoch [2], val_loss: 0.8156, val_acc: 0.7468
+Epoch [3], val_loss: 0.8271, val_acc: 0.7378
+Epoch [4], val_loss: 0.8200, val_acc: 0.7465
+Epoch [5], val_loss: 0.8217, val_acc: 0.7313
+Epoch [6], val_loss: 0.8288, val_acc: 0.7393
+Epoch [7], val_loss: 0.8096, val_acc: 0.7460
+Epoch [8], val_loss: 0.8249, val_acc: 0.7385
+Epoch [9], val_loss: 0.8291, val_acc: 0.7334
+
+
+Model:
+class CIFAR10Model(ImageClassificationBase):
+    def __init__(self):
+        super().__init__()
+        self.conv1 = nn.Conv2d(3, 9, 3, padding=1)
+        self.conv2 = nn.Conv2d(9, 9, 3, padding=1)
+        self.maxpool1 = nn.MaxPool2d(2, 2)
+        self.conv3 = nn.Conv2d(9, 18, 3, padding=1)
+        self.conv4 = nn.Conv2d(18, 18, 3, padding=1)
+        self.conv5 = nn.Conv2d(18, 36, 3, padding=1)
+        self.conv6 = nn.Conv2d(36, 36, 3, padding=1)
+
+        self.linear1 = nn.Linear(576, 100)
+        self.linear2 = nn.Linear(100, output_size)
+
+        self.dropout1 = nn.Dropout2d(0.5)
+
+        self.bn1 = nn.BatchNorm2d(num_features = 9)
+        self.bn2 = nn.BatchNorm2d(num_features = 18)
+        self.bn3 = nn.BatchNorm2d(num_features = 36)
+
+    def forward(self, xb):
+        # Apply layers & activation functions
+        out = xb
+        #part 1
+        out = self.conv1(out)
+        out = F.relu(out)
+        out = self.bn1(out)
+        out = self.conv2(out)
+        out = F.relu(out)
+        out = self.bn1(out)
+        out = self.maxpool1(out)
+
+        #part 2
+        out = self.conv3(out)
+        out = F.relu(out)
+        out = self.bn2(out)
+        out = self.conv4(out)
+        out = F.relu(out)
+        out = self.bn2(out)
+        out = self.maxpool1(out)
+
+        #part 3
+        out = self.conv5(out)
+        out = F.relu(out)
+        out = self.bn3(out)
+        out = self.conv6(out)
+        out = F.relu(out)
+        out = self.bn3(out)
+        out = self.maxpool1(out)
+
+        #part 4
+        out = torch.flatten(out,1)
+        out = self.linear1(out)
+        out = F.relu(out)
+        out = self.dropout1(out)
+        out = self.linear2(out)
+
+        return out
