@@ -61,7 +61,7 @@ java GradientDescent \<data set> \<network type> \<initialization type> \<batch 
 The detail please check Convolutional_Neural_Network/GradientDescent.java.  
 
 
-## Framework
+## Framework(PyTorch)
 You should go to Framework folder and try:  
 
 >Run this: Python framework.py  
