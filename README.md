@@ -5,7 +5,7 @@ Furthermore, under the folder named Framework, I utilize pytorch to build up a C
 
 Here the action of how to run the code.  
 
-###### FeedForward Neural Network:
+## FeedForward Neural Network:
 
 You should go to FeedForward folder and try:  
 >Run this: java PA13GradientDescent xor small minibatch 10 l2_norm 50 0.1 0.01  
@@ -26,7 +26,7 @@ The detail please check FeedForward_Neural_Network/PA14GradientDescent.java.
 
 
 
-###### Recurrent Neural Network(RNN):  
+## Recurrent Neural Network(RNN):  
 
 You should go to Recurrent Neural Network folder and try:  
 
@@ -44,7 +44,7 @@ The detail please check Recurrent_Neural_Network/GradientDescent.java.
 
 
 
-###### Convolutional Neural Network(CNN):
+## Convolutional Neural Network(CNN):
 
 You should go to Convolutional Neural Network folder and try:
 
@@ -59,3 +59,15 @@ It will run gradient descent on the mnist data set with lenet5 network, minibatc
 java GradientDescent \<data set> \<network type> \<initialization type> \<batch size> \<loss function> \<epochs> \<bias> \<learning rate> \<mu> \<use dropout> \<input dropout rate> \<hidden dropout rate> \<use batch normalization> \<batch norm alpha>  
 
 The detail please check Convolutional_Neural_Network/GradientDescent.java.  
+
+
+## Framework
+You should go to Framework folder and try:  
+
+>Run this: Python framework.py  
+
+>Run this: Python framework_add_batchnorm.py  
+
+These two models are build with pytorch. It will run with mnist data set. Both model have 81678 parameters and the second one adds a batchnorm after every ReLU layer.
+
+The detail please check Framework/framework.py. 
