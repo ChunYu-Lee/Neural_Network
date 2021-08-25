@@ -12,7 +12,7 @@ Run this: java PA13GradientDescent xor small minibatch 10 l2_norm 50 0.1 0.01
 
 It will run gradient descent on the xor data set with minibatch gradient with a batch size of 10 for 50 epochs, initializing node bias to 0.1, using a learning rate of 0.01, without mu and layers setting.  
 
-java PA13GradientDescent <data set> <network type> <gradient descent type> <loss function> <epochs> <bias> <learning rate>  
+java PA13GradientDescent \<data set> <network type> <gradient descent type> <loss function> <epochs> <bias> <learning rate>  
 
 The detail please check PA13GradientDescent.java file.  
 
@@ -20,7 +20,7 @@ Run this: java PA14GradientDescent mushroom minibatch 20 softmax 100 0.1 0.01 0.
 
 It will run gradient descent on the mushroom data set with minibatch gradient with a batch size of 20 for 100 epochs, initializing node bias to 0.1, using a learning rate of 0.01, a mu of 0.9, and a network with two layers each with 10 nodes.  
 
-java PA13GradientDescent <data set> <gradient descent type> <batch size> <loss function> <epochs> <bias> <learning rate> <mu> <layer_size_1 ... layer_size_n>  
+java PA14GradientDescent <data set> <gradient descent type> <batch size> <loss function> <epochs> <bias> <learning rate> <mu> <layer_size_1 ... layer_size_n>  
 
 The detail please check PA14GradientDescent.java file.    
 
